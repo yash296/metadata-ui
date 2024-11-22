@@ -1,0 +1,25 @@
+{
+    "widgets": [
+        {
+            "type": "Title",
+            "props": {
+                "text": "Metadata UI",
+                "position": "center"
+            }
+        },
+        {
+            "type": "Image",
+            "props": {
+                "src": "https://xx-ord1.na60.visual.force.com/servlet/servlet.ImageServer?id=0150c000002ymweAAA&oid=00D30000001GJzLEAW",
+                "alt": "Example Image"
+            }
+        },
+        {
+            "type": "Button",
+            "props": {
+                "label": "Click Me",
+                "action": "alert('Button Clicked!')"
+            }
+        }
+    ]
+}
