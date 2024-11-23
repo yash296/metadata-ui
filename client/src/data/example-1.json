@@ -1,0 +1,27 @@
+{
+    "components": [
+        {
+            "type": "Heading",
+            "props": {
+                "text": "Welcome to the Metadata-Driven UI",
+                "class": ""
+            }
+        },
+        {
+            "type": "ImageComponent",
+            "props": {
+                "src": "https://via.placeholder.com/150",
+                "alt": "Placeholder image",
+                "class": ""
+            }
+        },
+        {
+            "type": "ButtonComponent",
+            "props": {
+                "label": "Click Me",
+                "onClick": "handleButtonClick",
+                "class": ""
+            }
+        }
+    ]
+}
