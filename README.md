@@ -67,19 +67,6 @@ The external metadata is passed as JSON, defining which components to render and
 ### **Heading.vue**
 Displays text passed via the `text`, `className`, etc prop.
 
-```vue
-<template>
-  <h1>{{ text }}</h1>
-</template>
-<script>
-export default {
-  props: {
-    text: String
-  }
-}
-</script>
-```
-
 ### **Image.vue**
 Displays an image with `src`, `alt`, etc props.
 
