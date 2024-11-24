@@ -5,6 +5,7 @@ export const appendVariantClasses = (obj) => {
     // append predefined classes dynamically
     if (updatedObj?.variant) {
         const baseClass = baseVariants[updatedObj.variant] || '';
+        // TODO - support arrays
         updatedObj.className = (updatedObj.className || '') + ' ' + baseClass;
     }
     if (updatedObj.labelVariant) {

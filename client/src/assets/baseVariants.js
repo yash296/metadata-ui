@@ -1,4 +1,4 @@
-// TODO: to acheive these by defining classes
+// TODO: to acheive these by defining css classes
 export const baseVariants = {
     headingPrimary: "text-2xl font-bold text-gray-600 mt-2",
     headingSecondary: "text-xl font-semibold text-gray-500 mt-2",
