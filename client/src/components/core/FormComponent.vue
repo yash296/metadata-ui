@@ -1,21 +1,19 @@
 <template>
-    <form @submit.prevent="handleSubmit">
-        <div v-for="(field, index) in fields" :key="index" class="form-field">
-            <component :is="resolveComponent(field.type)" v-bind="field" v-model="formData[field.name]" />
+    <form @submit.prevent="handleSubmit" class="flex w-full flex-col">
+        <div v-for="(field, index) in fields" :key="index" class="flex w-full items-center justify-center align-middle">
+            <component :is="resolveComponent(field.type)" v-bind="fieldProps(field)" :value="formData[field.name]"
+                @formUpdate="updateValue(field.name, $event)" :modelValue="field.defaultValue || null" />
         </div>
-        <pre>{{ formData }}</pre> <!-- Debug: Show live form data -->
     </form>
 </template>
 
 <script>
 import { ref } from "vue";
-
-// Dynamic imports for form field components
-const InputField = () => import("./fields/InputField.vue");
-const TextAreaField = () => import("./fields/TextAreaField.vue");
-const SelectField = () => import("./fields/SelectField.vue");
-const CheckboxField = () => import("./fields/CheckboxField.vue");
-const SubmitButton = () => import("./fields/SubmitButton.vue");
+import { defineAsyncComponent } from "vue";
+import { appendVariantClasses } from "@/utils/appendVariantClass";
+import FallbackComponent from "@/components/core/FallbackComponent.vue";
+// list of form component names
+const formComponents = ['InputField', 'TextAreaField', 'SelectField', 'CheckboxField', 'SubmitButton'];
 
 export default {
     props: {
@@ -24,44 +22,37 @@ export default {
             required: true
         }
     },
-    setup(props) {
+    setup() {
         const formData = ref({});
+        // define the component map directly to avoid recalculating on every render
+        const componentMap = formComponents.reduce((map, formComponent) => {
+            map[formComponent] = defineAsyncComponent(() => import(`@/components/core/form/${formComponent}.vue`));
+            return map;
+        }, {});
 
-        // Initialize formData with default values
-        props.fields.forEach((field) => {
-            if (field.name && field.type !== "submit") {
-                formData.value[field.name] = field.type === "checkbox" ? false : "";
-            }
-        });
+        const fieldProps = (fieldVal) => appendVariantClasses(fieldVal);
+        fieldProps.isFormData = true;
 
         const resolveComponent = (type) => {
-            const componentMap = {
-                text: InputField,
-                email: InputField,
-                textarea: TextAreaField,
-                select: SelectField,
-                checkbox: CheckboxField,
-                submit: SubmitButton
-            };
-            return componentMap[type] || null;
+            // return the resolved component or null if not found
+            return componentMap[type] || FallbackComponent;
+        };
+
+        const updateValue = (fieldName, value) => {
+            formData.value[fieldName] = value;
         };
 
         const handleSubmit = () => {
-            console.log("Form Submitted:", formData.value);
-            alert(`Form Submitted: ${JSON.stringify(formData.value, null, 2)}`);
+            alert(`placeholder for api: ${JSON.stringify(formData.value, null, 2)}`);
         };
 
         return {
             resolveComponent,
             formData,
-            handleSubmit
+            handleSubmit,
+            fieldProps,
+            updateValue
         };
     }
 };
 </script>
-
-<style>
-.form-field {
-    margin-bottom: 1rem;
-}
-</style>

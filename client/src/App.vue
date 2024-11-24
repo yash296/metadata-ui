@@ -1,16 +1,30 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
-  <header>
-    <nav class=" w-full bg-red-400 text-white justify-center flex">
-      <RouterLink class="p-3" to="/">Home</RouterLink>
-      <RouterLink class="p-3" to="/about">About</RouterLink>
-    </nav>
-  </header>
-
-  <RouterView />
+  <nav
+    class="fixed top-0 left-0 w-full flex justify-center space-x-4 bg-gradient-to-r from-pink-500 to-orange-400  items-center  text-white p-3 z-50 shadow-md">
+    <RouterLink v-for="(route, index) in routes" :key="index"
+      class="text-white hover:text-orange-800 font-medium p-2 rounded transition duration-300" :to="route.path">
+      {{ route.name }}
+    </RouterLink>
+  </nav>
+  <div class="mt-16 ">
+    <router-view />
+  </div>
 </template>
 
-<style scoped></style>
+<script>
+export default {
+  setup() {
+    return {
+      routes: [{
+        name: 'Home',
+        path: '/'
+      }, {
+        name: 'About',
+        path: '/about'
+      }]
+    }
+  }
+}
+</script>
+
+<style></style>

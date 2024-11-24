@@ -1,5 +1,5 @@
 <template>
-    <h1>{{ text }}</h1>
+    <div :class="className">{{ text }}</div>
 </template>
 
 <script>
@@ -8,6 +8,10 @@ export default {
         text: {
             type: String,
             required: true
+        },
+        className: {
+            type: [String, Array],
+            default: ''
         }
     }
 };

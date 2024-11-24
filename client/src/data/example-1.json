@@ -4,23 +4,89 @@
             "type": "Heading",
             "props": {
                 "text": "Welcome to the Metadata-Driven UI",
-                "class": ""
+                "variant": "headingPrimary"
             }
         },
         {
             "type": "ImageComponent",
             "props": {
-                "src": "https://via.placeholder.com/150",
+                "src": "https://xx-ord1.na60.visual.force.com/servlet/servlet.ImageServer?id=0150c000002ymweAAA&oid=00D30000001GJzLEAW",
                 "alt": "Placeholder image",
-                "class": ""
+                "variant": "imageRounded"
             }
         },
         {
             "type": "ButtonComponent",
             "props": {
                 "label": "Click Me",
-                "onClick": "handleButtonClick",
-                "class": ""
+                "onClick": "test-api.com",
+                "variant": "buttonPrimary"
+            }
+        },
+        {
+            "type": "FormComponent",
+            "props": {
+                "fields": [
+                    {
+                        "type": "InputField",
+                        "inputType": "text",
+                        "label": "Name",
+                        "name": "name",
+                        "placeholder": "Enter your name",
+                        "required": true,
+                        "variant": "inputDefault",
+                        "labelVariant": "labelDefault",
+                        "defaultValue": "Test"
+                    },
+                    {
+                        "type": "InputField",
+                        "inputType": "email",
+                        "label": "Email",
+                        "name": "email",
+                        "placeholder": "Enter your email",
+                        "required": true,
+                        "variant": "inputDefault",
+                        "labelVariant": "labelDefault"
+                    },
+                    {
+                        "type": "TextAreaField",
+                        "inputType": "textarea",
+                        "label": "Message",
+                        "name": "message",
+                        "placeholder": "Enter your message",
+                        "variant": "textareaDefault",
+                        "labelVariant": "labelDefault"
+                    },
+                    {
+                        "type": "SelectField",
+                        "inputType": "select",
+                        "label": "Country",
+                        "name": "country",
+                        "options": [
+                            "India",
+                            "USA",
+                            "UK"
+                        ],
+                        "required": true,
+                        "variant": "selectDefault",
+                        "labelVariant": "labelDefault"
+                    },
+                    {
+                        "type": "CheckboxField",
+                        "inputType": "checkbox",
+                        "label": "Subscribe to newsletter",
+                        "name": "subscribe",
+                        "variant": "checkboxDefault",
+                        "labelVariant": "labelInline",
+                        "defaultValue": true
+                    },
+                    {
+                        "type": "SubmitButton",
+                        "inputType": "submit",
+                        "label": "Submit",
+                        "variant": "buttonSubmit"
+                    }
+                ]
             }
         }
     ]

@@ -3,21 +3,89 @@
         {
             "type": "Heading",
             "props": {
-                "text": "Another Example"
+                "text": "Power of Dynamic UIs",
+                "variant": "headingSecondary"
             }
         },
         {
-            "type": "Image",
+            "type": "ImageComponent",
             "props": {
-                "src": "https://via.placeholder.com/300",
-                "alt": "Another image"
+                "src": "https://ec-internal--xx-ord1.vf.force.com/servlet/servlet.ImageServer?id=015Qm000002XZylIAG&oid=00D30000001GJzLEAW",
+                "alt": "ExDIGITAL EXPERIENCE PLATFORM",
+                "variant": "imageCircular",
+                "styleName": "width: 200px; height: 200px"
             }
         },
         {
-            "type": "Button",
+            "type": "ButtonComponent",
             "props": {
-                "label": "Submit",
-                "onClick": "handleSubmit"
+                "label": "Learn More",
+                "onClick": "test-2-api.com",
+                "variant": "buttonSecondary"
+            }
+        },
+        {
+            "type": "FormComponent",
+            "props": {
+                "fields": [
+                    {
+                        "type": "InputField",
+                        "inputType": "text",
+                        "label": "Full Name",
+                        "name": "fullName",
+                        "placeholder": "Enter your full name",
+                        "required": true,
+                        "variant": "inputRounded",
+                        "labelVariant": "labelBold"
+                    },
+                    {
+                        "type": "InputField",
+                        "inputType": "number",
+                        "label": "Phone Number",
+                        "name": "phoneNumber",
+                        "placeholder": "Enter your phone number",
+                        "required": false,
+                        "variant": "inputDefault",
+                        "labelVariant": "labelDefault"
+                    },
+                    {
+                        "type": "TextAreaField",
+                        "inputType": "textarea",
+                        "label": "Feedback",
+                        "name": "feedback",
+                        "placeholder": "Share your thoughts with us",
+                        "variant": "textareaLarge",
+                        "labelVariant": "labelDefault"
+                    },
+                    {
+                        "type": "SelectField",
+                        "inputType": "select",
+                        "label": "Preferred Contact Method",
+                        "name": "contactMethod",
+                        "options": [
+                            "Email",
+                            "Phone",
+                            "Text Message"
+                        ],
+                        "required": true,
+                        "variant": "selectRounded",
+                        "labelVariant": "labelBold"
+                    },
+                    {
+                        "type": "CheckboxField",
+                        "inputType": "checkbox",
+                        "label": "Agree to terms and conditions",
+                        "name": "terms",
+                        "variant": "checkboxRounded",
+                        "labelVariant": "labelInline"
+                    },
+                    {
+                        "type": "SubmitButton",
+                        "inputType": "submit",
+                        "label": "Send Feedback",
+                        "variant": "buttonPrimary"
+                    }
+                ]
             }
         }
     ]
